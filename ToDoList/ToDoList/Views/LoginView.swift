@@ -14,7 +14,13 @@ struct LoginView: View {
         NavigationView {
             VStack {
                 HeaderView(title: "To Do List", subtitle: "Get things done", angle: 20)
+                
                 Form {
+                    if !viewModel.errorMessage.isEmpty {
+                        Text(viewModel.errorMessage)
+                            .foregroundStyle(Color.red)
+                    }
+                    
                     TextField("Email address", text: $viewModel.email)
                         .textFieldStyle(.roundedBorder)
                         .textInputAutocapitalization(.none)
@@ -25,7 +31,7 @@ struct LoginView: View {
                         .listRowSeparator(.hidden)
                     
                     TLButton(title: "Log in") {
-                        //attempt to log in
+                        viewModel.login()
                     }
                 }
                 .scrollContentBackground(.hidden)
