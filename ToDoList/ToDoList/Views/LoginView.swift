@@ -8,30 +8,24 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email = ""
-    @State private var password = ""
+    @StateObject var viewModel = LoginViewViewModel()
+    
     var body: some View {
         NavigationView {
             VStack {
                 HeaderView(title: "To Do List", subtitle: "Get things done", angle: 20)
                 Form {
-                    TextField("Email address", text: $email)
+                    TextField("Email address", text: $viewModel.email)
                         .textFieldStyle(.roundedBorder)
+                        .textInputAutocapitalization(.none)
+                        .autocorrectionDisabled()
                         .listRowSeparator(.hidden)
-                    SecureField("Password", text: $password)
+                    SecureField("Password", text: $viewModel.password)
                         .textFieldStyle(.roundedBorder)
                         .listRowSeparator(.hidden)
                     
-                    Button {
-                        
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(Color(#colorLiteral(red: 1, green: 0.5424868464, blue: 1, alpha: 1)))
-                            Text("Log in")
-                                .foregroundStyle(Color.white)
-                                .bold()
-                        }
+                    TLButton(title: "Log in") {
+                        //attempt to log in
                     }
                 }
                 .scrollContentBackground(.hidden)
