@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+//viewMoswl for singl to do list item view (each row)
+class ToDoListItemViewViewModel: ObservableObject {
+    init() {
+        
+    }
+}
