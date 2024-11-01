@@ -1,6 +1,7 @@
 # To Do List App
 
-This app is written using MVVM pattern. Every class in View-group represents one view. Also it uses Firebase for user authentication and database management.
+### This app is written using MVVM pattern. Every class in View-group represents one view. This project uses Firebase for user authentication and database management.
+
 * Firebase Authentication is used to handle user authentication, allowing existing users to sign in and new users to create accounts. The `LoginViewViewModel` class is responsible for handling the login logic, while the `RegisterViewViewModel` class is responsible for handling the registration logic. 
 * When a new user creates an account, their information is inserted into a Firestore database using the `insertUserRecord` method in the `RegisterViewViewModel` class. This method creates a new document in the "users" collection of the Firestore database. 
 ToDoListItems are also stored in Firestore. Users can create a new to-do item using the `save` method in the `NewItemViewViewModel` class. This method takes creates a new document in the "todos" subcollection of the user's document in the "users" collection. 
